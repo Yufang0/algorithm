@@ -1,4 +1,4 @@
-def dfs(index, num, ans, lines, M):
+def test(index, num, ans, lines, M):
         #print("index",index,'num',num,'ans',ans)
         if index == len(lines):
             #print("M")
@@ -20,7 +20,7 @@ def dfs(index, num, ans, lines, M):
             if Max[0] != -1:
                 ans.append(lines[Max[0]])
                 #print(ans,1)
-                return dfs(Max[0]+1,num+1,ans,lines,M)
+                return test(Max[0]+1,num+1,ans,lines,M)
 
             else:
                 #print(ans,-1)
@@ -43,7 +43,7 @@ def dfs(index, num, ans, lines, M):
             if Max[0] != -1:
                 ans.append(lines[Max[0]])
                 #print(ans,3)
-                return dfs(Max[0]+1,num+1,ans,lines,M)
+                return test(Max[0]+1,num+1,ans,lines,M)
             
             else:
                 #print(ans,-1)
@@ -51,8 +51,10 @@ def dfs(index, num, ans, lines, M):
 
 turn = int(input())
 
+t = False
+
 for _ in range(turn):
-    print()
+    a = input()
     M = int(input())
     
     lines = []
@@ -68,7 +70,13 @@ for _ in range(turn):
 
     lines.sort()
     
-    num, ans = dfs(0,0,[],lines,M)
+    num, ans = test(0,0,[],lines,M)
+
+    if t:
+        print()
+
+    t = True
+
 
     print(num)
 
